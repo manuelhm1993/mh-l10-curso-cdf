@@ -13,6 +13,7 @@ class CursoSeeder extends Seeder
      */
     public function run(): void
     {
+        // Datos de prueba
         $cursos = [
             'laravel' => [
                 'name'        => 'Laravel',
@@ -31,6 +32,7 @@ class CursoSeeder extends Seeder
             ],
         ];
 
+        // Crear tantos modelos como datos se tengan
         foreach ($cursos as $curso) {
             $nuevoCurso = new Curso();
 
