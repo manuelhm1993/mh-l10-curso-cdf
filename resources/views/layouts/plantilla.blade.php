@@ -11,7 +11,8 @@
 <body>
     @yield('content')
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- CDN de tailwindcss --}}
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
     @yield('js')
 </body>
