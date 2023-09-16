@@ -9,7 +9,7 @@ class CursoController extends Controller
 {
     public function index() {
         // La paginación por defecto son 15 registros, se puede moficiar enviando el número deseado por parámetro
-        $cursos = Curso::paginate(10);
+        $cursos = Curso::paginate();
 
         return view('cursos.index', compact('cursos'));
     }

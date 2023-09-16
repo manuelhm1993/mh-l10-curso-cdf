@@ -8,13 +8,11 @@
     <section>
         <h2>Listado de cursos</h2>
 
-        @foreach ($cursos as $curso)
-            <ul>
+        <ul>
+            @foreach ($cursos as $curso)
                 <li>Nombre: {{ $curso->name }}</li>
-                <li>Categoría: {{ $curso->categoria }}</li>
-            </ul>
-            <hr>
-        @endforeach
+            @endforeach
+        </ul>
     </section>
 
     {{ $cursos->links() }}
