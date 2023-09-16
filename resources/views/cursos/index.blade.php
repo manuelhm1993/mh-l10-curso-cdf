@@ -12,9 +12,10 @@
             <ul>
                 <li>Nombre: {{ $curso->name }}</li>
                 <li>Categoría: {{ $curso->categoria }}</li>
-                <li>Descripción: {{ $curso->description }}</li>
             </ul>
             <hr>
         @endforeach
     </section>
+
+    {{ $cursos->links() }}
 @endsection

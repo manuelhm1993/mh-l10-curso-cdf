@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class CursoController extends Controller
 {
     public function index() {
-        $cursos = Curso::all();
+        // La paginación por defecto son 15 registros, se puede moficiar enviando el número deseado por parámetro
+        $cursos = Curso::paginate(10);
 
         return view('cursos.index', compact('cursos'));
     }
