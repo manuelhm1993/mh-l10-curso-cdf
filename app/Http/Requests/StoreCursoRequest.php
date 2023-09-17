@@ -38,4 +38,16 @@ class StoreCursoRequest extends FormRequest
             'description.required' => 'La descripción del curso es obligatoria',
         ];
     }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'name' => 'nombre del curso',
+        ];
+    }
 }
