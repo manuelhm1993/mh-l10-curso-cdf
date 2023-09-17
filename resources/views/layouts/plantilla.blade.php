@@ -9,6 +9,18 @@
     @yield('css')
 </head>
 <body>
+    <header>
+        <h1>MHenriquez</h1>
+
+        <nav>
+            <ul>
+                <li><a href="{{ route('home') }}">Home</a></li>
+                <li><a href="{{ route('cursos.index') }}">Cursos</a></li>
+                <li><a href="{{ route('nosotros') }}">Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
     @yield('content')
 
     {{-- CDN de tailwindcss --}}

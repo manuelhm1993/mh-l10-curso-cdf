@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Controlador de acción única o invocable, solo tiene un método y se invoca pasando solo la clase
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 // Rutas de recursos con nombres y parámetros personalizados (en caso de requerir modificar las urls)
 /* Route::resource('asignaturas', CursoController::class)->names('cursos')->parameters([
@@ -33,3 +33,6 @@ Route::controller(CursoController::class)->prefix('cursos')->name('cursos.')->gr
     Route::put('/{curso}', 'update')->name('update');
     Route::delete('/{curso}', 'destroy')->name('destroy');
 });
+
+// Rutas para mostrar contenido estático, que no conecta con BBDD
+Route::view('nosotros', 'nosotros')->name('nosotros');

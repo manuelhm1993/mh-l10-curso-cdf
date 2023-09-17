@@ -9,7 +9,6 @@ class HomeController extends Controller
     // Controlador de acción única
     public function __invoke()
     {
-        // return view('home');
-        return to_route('cursos.index');
+        return view('home');
     }
 }
