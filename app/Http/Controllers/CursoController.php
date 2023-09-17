@@ -49,4 +49,10 @@ class CursoController extends Controller
 
         return to_route('cursos.show', $curso);
     }
+
+    public function destroy(Curso $curso) {
+        $curso->delete();
+
+        return to_route('cursos.index');
+    }
 }

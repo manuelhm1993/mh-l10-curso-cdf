@@ -26,4 +26,5 @@ Route::controller(CursoController::class)->prefix('cursos')->name('cursos.')->gr
     Route::get('/{curso}', 'show')->name('show');
     Route::get('/{curso}/edit', 'edit')->name('edit');
     Route::put('/{curso}', 'update')->name('update');
+    Route::delete('/{curso}', 'destroy')->name('destroy');
 });
