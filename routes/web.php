@@ -19,12 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeController::class);
 
 // Rutas de recursos con nombres y parámetros personalizados (en caso de requerir modificar las urls)
-Route::resource('asignaturas', CursoController::class)->names('cursos')->parameters([
+/* Route::resource('asignaturas', CursoController::class)->names('cursos')->parameters([
     'asignaturas' => 'curso'
-]);
+]); */
 
 // Grupo de rutas para el controlador CursoController
-/* Route::controller(CursoController::class)->prefix('cursos')->name('cursos.')->group(function () {
+Route::controller(CursoController::class)->prefix('cursos')->name('cursos.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/create', 'create')->name('create');
     Route::post('/', 'store')->name('store');
@@ -32,4 +32,4 @@ Route::resource('asignaturas', CursoController::class)->names('cursos')->paramet
     Route::get('/{curso}/edit', 'edit')->name('edit');
     Route::put('/{curso}', 'update')->name('update');
     Route::delete('/{curso}', 'destroy')->name('destroy');
-}); */
+});
