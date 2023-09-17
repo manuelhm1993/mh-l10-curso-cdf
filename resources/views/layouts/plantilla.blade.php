@@ -7,16 +7,47 @@
     <title>@yield('title')</title>
 
     @yield('css')
+
+    <style>
+        .active {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>MHenriquez</h1>
 
+        {{-- Sustituir a var_dump --}}
+        {{-- @dd(request()->routeIs('home')) --}}
+
         <nav>
             <ul>
-                <li><a href="{{ route('home') }}">Home</a></li>
-                <li><a href="{{ route('cursos.index') }}">Cursos</a></li>
-                <li><a href="{{ route('nosotros') }}">Nosotros</a></li>
+                <li>
+                    <a
+                        class="{{ request()->routeIs('home') ? 'active' : '' }}"
+                        href="{{ route('home') }}"
+                    >
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a
+                        class="{{ request()->routeIs('cursos.index') ? 'active' : '' }}"
+                        href="{{ route('cursos.index') }}"
+                    >
+                        Cursos
+                    </a>
+                </li>
+                <li>
+                    <a
+                        class="{{ request()->routeIs('nosotros') ? 'active' : '' }}"
+                        href="{{ route('nosotros') }}"
+                    >
+                        Nosotros
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
