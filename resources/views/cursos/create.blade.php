@@ -24,6 +24,18 @@
         </label>
 
         <label>
+            Slug:
+            <p>
+                <input type="text" name="slug" value="{{ old('slug') }}">
+            </p>
+
+            @error('slug')
+                <span>{{ $message }}</span>
+                <br>
+            @enderror
+        </label>
+
+        <label>
             Categoría:
             <p>
                 <input type="text" name="categoria" value="{{ old('categoria') }}">

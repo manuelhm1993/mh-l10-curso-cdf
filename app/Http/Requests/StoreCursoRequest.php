@@ -25,6 +25,7 @@ class StoreCursoRequest extends FormRequest
             'name'        => 'required|min:3',
             'description' => 'required',
             'categoria'   => 'nullable',
+            'slug'        => 'required|unique:cursos',
         ];
     }
 

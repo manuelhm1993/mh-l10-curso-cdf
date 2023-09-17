@@ -25,9 +25,6 @@ class CursoController extends Controller
         // Validación del formulario backend
         $validated = $request->validated();
 
-        // Agregar el slug al array
-        $validated['slug'] = $slug = Str::of($validated['name'])->slug('-');
-
         $curso = Curso::create($validated);
 
         return to_route('cursos.show', $curso);
@@ -47,10 +44,8 @@ class CursoController extends Controller
             'name'        => 'required|min:3',
             'description' => 'required',
             'categoria'   => 'nullable',
+            'slug'        => 'required|unique:cursos,slug,' . $curso->id,
         ]);
-
-        // Agregar el slug al array
-        $validated['slug'] = $slug = Str::of($validated['name'])->slug('-');
 
         $curso->update($validated);
 
