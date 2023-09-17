@@ -42,6 +42,7 @@ class CursoController extends Controller
         $validated = $request->validate([
             'name'        => 'required|min:3',
             'description' => 'required',
+            'categoria'   => 'nullable',
         ]);
 
         $curso->update($validated);

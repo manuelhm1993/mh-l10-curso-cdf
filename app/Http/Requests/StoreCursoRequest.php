@@ -24,6 +24,7 @@ class StoreCursoRequest extends FormRequest
         return [
             'name'        => 'required|min:3',
             'description' => 'required',
+            'categoria'   => 'nullable',
         ];
     }
 
