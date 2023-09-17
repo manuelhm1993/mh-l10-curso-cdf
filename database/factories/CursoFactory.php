@@ -18,6 +18,7 @@ class CursoFactory extends Factory
     {
         return [
             'name'        => fake()->sentence(), // El helper fake() llama a la librería Faker
+            'slug'        => fake()->slug(), // El helper fake() llama a la librería Faker
             'description' => fake()->text(),
             'categoria'   => fake()->randomElement([ // Alterna entre uno u otro
                 'Desarrollo web',
