@@ -13,7 +13,8 @@
         <label>
             Nombre:
             <p>
-                <input type="text" name="name">
+                {{-- Recuperar la data anterior de los inputs si ocurre un error de validación, valor por default null --}}
+                <input type="text" name="name" value="{{ old('name') }}">
             </p>
 
             @error('name')
@@ -24,14 +25,14 @@
         <label>
             Categoría:
             <p>
-                <input type="text" name="categoria">
+                <input type="text" name="categoria" value="{{ old('categoria') }}">
             </p>
         </label>
 
         <label>
             Descripción:
             <p>
-                <textarea name="description" rows="5"></textarea>
+                <textarea name="description" rows="5">{{ old('description') }}</textarea>
             </p>
 
             @error('description')
