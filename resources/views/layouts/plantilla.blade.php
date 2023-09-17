@@ -20,6 +20,8 @@
 
     @yield('content')
 
+    @include('layouts.includes.footer')
+
     {{-- CDN de tailwindcss --}}
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
