@@ -24,4 +24,6 @@ Route::controller(CursoController::class)->prefix('cursos')->name('cursos.')->gr
     Route::get('/create', 'create')->name('create');
     Route::post('/', 'store')->name('store');
     Route::get('/{curso}', 'show')->name('show');
+    Route::get('/{curso}/edit', 'edit')->name('edit');
+    Route::put('/{curso}', 'update')->name('update');
 });

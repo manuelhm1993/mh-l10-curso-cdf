@@ -27,4 +27,14 @@ class CursoController extends Controller
     public function show(Curso $curso) {
         return view('cursos.show', ['curso' => $curso]);
     }
+
+    public function edit(Curso $curso) {
+        return view('cursos.edit', compact('curso'));
+    }
+
+    public function update(Request $request, Curso $curso) {
+        $curso->update($request->all());
+
+        return to_route('cursos.show', $curso);
+    }
 }
