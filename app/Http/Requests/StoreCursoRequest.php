@@ -26,4 +26,16 @@ class StoreCursoRequest extends FormRequest
             'description' => 'required',
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'description.required' => 'La descripción del curso es obligatoria',
+        ];
+    }
 }
