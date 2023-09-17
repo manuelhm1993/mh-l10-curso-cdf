@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCursoRequest;
 use App\Models\Curso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CursoController extends Controller
 {
@@ -23,6 +24,9 @@ class CursoController extends Controller
     public function store(StoreCursoRequest $request) {
         // Validación del formulario backend
         $validated = $request->validated();
+
+        // Agregar el slug al array
+        $validated['slug'] = $slug = Str::of($validated['name'])->slug('-');
 
         $curso = Curso::create($validated);
 
@@ -44,6 +48,9 @@ class CursoController extends Controller
             'description' => 'required',
             'categoria'   => 'nullable',
         ]);
+
+        // Agregar el slug al array
+        $validated['slug'] = $slug = Str::of($validated['name'])->slug('-');
 
         $curso->update($validated);
 

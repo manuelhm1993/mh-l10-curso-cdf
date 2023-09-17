@@ -10,17 +10,15 @@ class Curso extends Model
     use HasFactory;
 
     /* protected $fillable = [
-        'name', 'description', 'categoria'
+        'name', 'description', 'categoria', 'slug'
     ]; */
 
     protected $guarded = []; // Declara los campos protegidos e ignora los permitidos
 
     /**
      * Get the route key for the model.
-     *
-     * @return string
      */
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return 'slug';
     }
