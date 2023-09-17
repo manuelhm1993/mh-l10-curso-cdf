@@ -22,5 +22,6 @@ Route::get('/', HomeController::class);
 Route::controller(CursoController::class)->prefix('cursos')->name('cursos.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
     Route::get('/{curso}', 'show')->name('show');
 });

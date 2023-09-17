@@ -18,6 +18,11 @@ class CursoController extends Controller
         return view('cursos.create');
     }
 
+    public function store(Request $request) {
+        return $request;
+        return view('cursos.index');
+    }
+
     public function show(Curso $curso) {
         return view('cursos.show', ['curso' => $curso]);
     }
