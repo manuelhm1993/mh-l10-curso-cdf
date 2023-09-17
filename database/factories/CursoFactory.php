@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Curso>
@@ -16,9 +17,12 @@ class CursoFactory extends Factory
      */
     public function definition(): array
     {
+        $name = fake()->sentence(); // El helper fake() llama a la librería Faker
+        $slug = Str::of($name)->slug('-'); // Crear un slug correspondiente al nombre
+
         return [
-            'name'        => fake()->sentence(), // El helper fake() llama a la librería Faker
-            'slug'        => fake()->slug(), // El helper fake() llama a la librería Faker
+            'name'        => $name,
+            'slug'        => $slug,
             'description' => fake()->text(),
             'categoria'   => fake()->randomElement([ // Alterna entre uno u otro
                 'Desarrollo web',
