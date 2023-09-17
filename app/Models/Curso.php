@@ -14,4 +14,14 @@ class Curso extends Model
     ]; */
 
     protected $guarded = []; // Declara los campos protegidos e ignora los permitidos
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 }
