@@ -16,6 +16,10 @@
             <p>
                 <input type="text" name="name" value="{{ $curso->name }}">
             </p>
+
+            @error('name')
+                <span>{{ $message }}</span>
+            @enderror
         </label>
 
         <label>
@@ -30,8 +34,14 @@
             <p>
                 <textarea name="description" rows="5">{{ $curso->description }}</textarea>
             </p>
+
+            @error('description')
+                <span>{{ $message }}</span>
+            @enderror
         </label>
 
-        <button type="submit">Actualizar curso</button>
+        <div>
+            <button type="submit">Actualizar curso</button>
+        </div>
     </form>
 @endsection

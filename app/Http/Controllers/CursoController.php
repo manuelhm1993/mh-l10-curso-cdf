@@ -19,7 +19,13 @@ class CursoController extends Controller
     }
 
     public function store(Request $request) {
-        $curso = Curso::create($request->all());
+        // Validación del formulario backend
+        $validated = $request->validate([
+            'name'        => 'required',
+            'description' => 'required',
+        ]);
+
+        $curso = Curso::create($validated);
 
         return to_route('cursos.show', $curso);
     }
@@ -33,7 +39,13 @@ class CursoController extends Controller
     }
 
     public function update(Request $request, Curso $curso) {
-        $curso->update($request->all());
+        // Validación del formulario backend
+        $validated = $request->validate([
+            'name'        => 'required',
+            'description' => 'required',
+        ]);
+
+        $curso->update($validated);
 
         return to_route('cursos.show', $curso);
     }

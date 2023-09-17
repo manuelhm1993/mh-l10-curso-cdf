@@ -15,6 +15,10 @@
             <p>
                 <input type="text" name="name">
             </p>
+
+            @error('name')
+                <span>{{ $message }}</span>
+            @enderror
         </label>
 
         <label>
@@ -29,8 +33,14 @@
             <p>
                 <textarea name="description" rows="5"></textarea>
             </p>
+
+            @error('description')
+                <span>{{ $message }}</span>
+            @enderror
         </label>
 
-        <button type="submit">Agregar curso</button>
+        <div>
+            <button type="submit">Agregar curso</button>
+        </div>
     </form>
 @endsection
