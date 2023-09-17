@@ -22,6 +22,6 @@ class Curso extends Model
      */
     public function getRouteKeyName()
     {
-        return 'name';
+        return 'slug';
     }
 }
