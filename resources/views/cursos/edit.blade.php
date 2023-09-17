@@ -14,7 +14,8 @@
         <label>
             Nombre:
             <p>
-                <input type="text" name="name" value="{{ $curso->name }}">
+                {{-- old('name', $curso->name) Si se pasa un segundo campo, se puede usar en edit --}}
+                <input type="text" name="name" value="{{ old('name', $curso) }}">
             </p>
 
             @error('name')
@@ -26,14 +27,14 @@
         <label>
             Categoría:
             <p>
-                <input type="text" name="categoria" value="{{ $curso->categoria }}">
+                <input type="text" name="categoria" value="{{ old('categoria', $curso) }}">
             </p>
         </label>
 
         <label>
             Descripción:
             <p>
-                <textarea name="description" rows="5">{{ $curso->description }}</textarea>
+                <textarea name="description" rows="5">{{ old('description', $curso) }}</textarea>
             </p>
 
             @error('description')

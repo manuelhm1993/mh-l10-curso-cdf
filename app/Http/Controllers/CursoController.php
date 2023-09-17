@@ -21,7 +21,7 @@ class CursoController extends Controller
     public function store(Request $request) {
         // Validación del formulario backend
         $validated = $request->validate([
-            'name'        => 'required',
+            'name'        => 'required|min:3',
             'description' => 'required',
         ]);
 
@@ -41,7 +41,7 @@ class CursoController extends Controller
     public function update(Request $request, Curso $curso) {
         // Validación del formulario backend
         $validated = $request->validate([
-            'name'        => 'required',
+            'name'        => 'required|min:3',
             'description' => 'required',
         ]);
 
