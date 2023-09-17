@@ -37,6 +37,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
         });
 
+        // Permite la traducción de las rutas
         Route::resourceVerbs([
             'create' => 'crear',
             'edit'   => 'editar',

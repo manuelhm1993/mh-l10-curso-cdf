@@ -18,6 +18,21 @@ use Illuminate\Support\Facades\Route;
 // Controlador de acción única o invocable, solo tiene un método y se invoca pasando solo la clase
 Route::get('/', HomeController::class);
 
+// Rutas de recursos con nombres y parámetros personalizados (en caso de requerir modificar las urls)
+Route::resource('asignaturas', CursoController::class)
+->names([
+    'index'   => 'cursos.index',
+    'create'  => 'cursos.create',
+    'store'   => 'cursos.store',
+    'show'    => 'cursos.show',
+    'edit'    => 'cursos.edit',
+    'update'  => 'cursos.update',
+    'destroy' => 'cursos.destroy'
+])
+->parameters([
+    'asignaturas' => 'curso'
+]);
+
 // Grupo de rutas para el controlador CursoController
 /* Route::controller(CursoController::class)->prefix('cursos')->name('cursos.')->group(function () {
     Route::get('/', 'index')->name('index');
@@ -28,6 +43,3 @@ Route::get('/', HomeController::class);
     Route::put('/{curso}', 'update')->name('update');
     Route::delete('/{curso}', 'destroy')->name('destroy');
 }); */
-
-// Rutas de recursos
-Route::resource('cursos', CursoController::class);
