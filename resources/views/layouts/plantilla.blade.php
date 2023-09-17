@@ -34,7 +34,7 @@
                 </li>
                 <li>
                     <a
-                        class="{{ request()->routeIs('cursos.index') ? 'active' : '' }}"
+                        class="{{ request()->routeIs('cursos.*') ? 'active' : '' }}"
                         href="{{ route('cursos.index') }}"
                     >
                         Cursos
