@@ -19,17 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeController::class);
 
 // Rutas de recursos con nombres y parámetros personalizados (en caso de requerir modificar las urls)
-Route::resource('asignaturas', CursoController::class)
-->names([
-    'index'   => 'cursos.index',
-    'create'  => 'cursos.create',
-    'store'   => 'cursos.store',
-    'show'    => 'cursos.show',
-    'edit'    => 'cursos.edit',
-    'update'  => 'cursos.update',
-    'destroy' => 'cursos.destroy'
-])
-->parameters([
+Route::resource('asignaturas', CursoController::class)->names('cursos')->parameters([
     'asignaturas' => 'curso'
 ]);
 
