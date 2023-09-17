@@ -19,6 +19,7 @@
 
             @error('name')
                 <span>{{ $message }}</span>
+                <br>
             @enderror
         </label>
 
@@ -37,11 +38,10 @@
 
             @error('description')
                 <span>{{ $message }}</span>
+                <br>
             @enderror
         </label>
 
-        <div>
-            <button type="submit">Actualizar curso</button>
-        </div>
+        <button type="submit">Actualizar curso</button>
     </form>
 @endsection
