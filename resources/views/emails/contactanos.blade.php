@@ -13,10 +13,10 @@
 
     <h3>Remitente</h3>
     <ul>
-        <li>Nombre: {{ $user->name }}</li>
-        <li>Correo: {{ $user->email }}</li>
+        <li>Nombre: {{ $contacto['name'] }}</li>
+        <li>Correo: {{ $contacto['email'] }}</li>
     </ul>
 
     <h3>Mensaje</h3>
-    <p>{{ $body }}</p>
+    <p>{{ $contacto['message'] }}</p>
 @endsection

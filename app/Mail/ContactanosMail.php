@@ -15,16 +15,14 @@ class ContactanosMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected User $user;
-    protected string $message;
+    protected array $contacto;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(User $user, string $message)
+    public function __construct(array $contacto)
     {
-        $this->user    = $user;
-        $this->message = $message;
+        $this->contacto = $contacto;
     }
 
     /**
@@ -33,7 +31,7 @@ class ContactanosMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address($this->user->email, $this->user->name), // Remitente
+            from: new Address($this->contacto['email'], $this->contacto['name']), // Remitente
             subject: 'Información de contacto', // Asunto
         );
     }
@@ -46,8 +44,7 @@ class ContactanosMail extends Mailable
         return new Content(
             view: 'emails.contactanos',
             with: [
-                'user' => $this->user,
-                'body' => $this->message, // La palabra message está reservada, se debe usar otra palabra
+                'contacto' => $this->contacto
             ],
         );
     }
