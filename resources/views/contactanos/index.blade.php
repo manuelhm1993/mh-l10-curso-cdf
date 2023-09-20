@@ -53,3 +53,11 @@
         <button type="submit">Enviar mensaje</button>
     </form>
 @endsection
+
+@section('js')
+    @if (session('feedback'))
+        <script>
+            alert("{{ session('feedback') }}");
+        </script>
+    @endif
+@endsection
