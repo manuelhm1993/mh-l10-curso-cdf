@@ -2,6 +2,15 @@
 
 @section('title', 'MHenriquez - Contáctanos')
 
+@section('css')
+    <style>
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+@endsection
+
 @section('content')
     <h1>Déjanos un mensaje</h1>
 
@@ -15,6 +24,10 @@
         </label>
         <br>
 
+        @error('name')
+            <div class="error">{{ $message }}</div>
+        @enderror
+
         <label>
             Correo:
             <br>
@@ -22,12 +35,20 @@
         </label>
         <br>
 
+        @error('email')
+            <div class="error">{{ $message }}</div>
+        @enderror
+
         <label>
             Mensaje:
             <br>
             <textarea name="message" rows="4" placeholder="Mensaje"></textarea>
         </label>
         <br>
+
+        @error('message')
+            <div class="error">{{ $message }}</div>
+        @enderror
 
         <button type="submit">Enviar mensaje</button>
     </form>

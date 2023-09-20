@@ -16,8 +16,14 @@ class ContactanosController extends Controller
     }
 
     public function store(Request $request) {
+        $validated = $request->validate([
+            'name'    => 'required',
+            'email'   => 'required|email',
+            'message' => 'required',
+        ]);
+
         // Usar el facade Mail para enviar el correo a una dirección con especificada y una clase Mailable
-        Mail::to(env('MAIL_TO_ADDRESS', 'manuel@mhenriquez.com'))->send(new ContactanosMail($request->all()));
+        Mail::to(env('MAIL_TO_ADDRESS', 'manuel@mhenriquez.com'))->send(new ContactanosMail($validated));
 
         return "Mensaje enviado";
     }
