@@ -16,15 +16,17 @@ class ContactanosController extends Controller
     }
 
     public function store(Request $request) {
+        // Construir un usuario no persistente
         $user = new User;
 
         $user->name  = $request->name;
         $user->email = $request->email;
 
+        // Asignar el mensaje a una variable
         $message = $request->message;
 
         // Usar el facade Mail para enviar el correo a una dirección con especificada y una clase Mailable
-        Mail::to('manuelhm1993@gmail.com')->cc('manuel_hm1993@hotmail.com')->send(new ContactanosMail($user, $message));
+        Mail::to(env('MAIL_TO_ADDRESS', 'manuel@mhenriquez.com'))->send(new ContactanosMail($user, $message));
 
         return "Mensaje enviado";
     }

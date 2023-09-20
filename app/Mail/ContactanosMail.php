@@ -46,8 +46,8 @@ class ContactanosMail extends Mailable
         return new Content(
             view: 'emails.contactanos',
             with: [
-                'user'    => $this->user,
-                'message' => $this->message,
+                'user' => $this->user,
+                'body' => $this->message, // La palabra message está reservada, se debe usar otra palabra
             ],
         );
     }

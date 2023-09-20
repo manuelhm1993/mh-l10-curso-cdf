@@ -18,5 +18,5 @@
     </ul>
 
     <h3>Mensaje</h3>
-    <p>{{ $message }}</p>
+    <p>{{ $body }}</p>
 @endsection
