@@ -29,7 +29,7 @@ class ContactanosMail extends Mailable
     {
         return new Envelope(
             from: new Address('gerencia@mhenriquez.com', 'Manuel Henriquez'), // Remitente
-            subject: 'Contactanos Mail', // Asunto
+            subject: 'Información de contacto', // Asunto
         );
     }
 
@@ -39,7 +39,7 @@ class ContactanosMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.contactanos',
         );
     }
 
