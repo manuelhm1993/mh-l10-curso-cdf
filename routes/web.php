@@ -4,10 +4,6 @@ use App\Http\Controllers\CursoController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-// Mailing
-use App\Mail\ContactanosMail;
-use Illuminate\Support\Facades\Mail;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,10 +37,11 @@ Route::controller(CursoController::class)->prefix('cursos')->name('cursos.')->gr
 // Rutas para mostrar contenido estático, que no conecta con BBDD
 Route::view('nosotros', 'nosotros')->name('nosotros');
 
-// Envío de correos
-Route::get('/contactanos', function () {
-    // Usar el facade Mail para enviar el correo a una dirección con especificada y una clase Mailable
-    Mail::to('manuelhm1993@gmail.com')->cc('manuel_hm1993@hotmail.com')->send(new ContactanosMail);
 
-    return "Mensaje enviado";
-})->name('contactanos');
+Route::controller(ContactanosController::class)->prefix('contactanos')->name('contactanos.')->group(function () {
+    // Formulario de contacto
+    Route::get('/', 'index')->name('index');
+
+    // Guardado y envío de correo
+    Route::post('/', 'store')->name('store');
+});

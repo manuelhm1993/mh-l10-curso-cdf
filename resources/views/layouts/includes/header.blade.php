@@ -28,6 +28,14 @@
                     Nosotros
                 </a>
             </li>
+            <li>
+                <a
+                    class="{{ request()->routeIs('contactanos.index') ? 'active' : '' }}"
+                    href="{{ route('contactanos.index') }}"
+                >
+                    Contáctanos
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
