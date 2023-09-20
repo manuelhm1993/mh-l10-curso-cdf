@@ -28,7 +28,7 @@ class ContactanosMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('gerencia@mhenriquez.com', 'Manuel Henriquez'), // Remitente
+            // from: new Address('gerencia@mhenriquez.com', 'Manuel Henriquez'), // Remitente
             subject: 'Información de contacto', // Asunto
         );
     }

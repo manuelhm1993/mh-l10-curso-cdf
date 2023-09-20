@@ -44,5 +44,7 @@ Route::view('nosotros', 'nosotros')->name('nosotros');
 // Envío de correos
 Route::get('/contactanos', function () {
     // Usar el facade Mail para enviar el correo a una dirección con especificada y una clase Mailable
-    Mail::to('manuelhm1993@gmail.com')->send(new ContactanosMail);
+    Mail::to('manuelhm1993@gmail.com')->cc('manuel_hm1993@hotmail.com')->send(new ContactanosMail);
+
+    return "Mensaje enviado";
 })->name('contactanos');
