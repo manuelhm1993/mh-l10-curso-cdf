@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -36,7 +37,6 @@ Route::controller(CursoController::class)->prefix('cursos')->name('cursos.')->gr
 
 // Rutas para mostrar contenido estático, que no conecta con BBDD
 Route::view('nosotros', 'nosotros')->name('nosotros');
-
 
 Route::controller(ContactanosController::class)->prefix('contactanos')->name('contactanos.')->group(function () {
     // Formulario de contacto
