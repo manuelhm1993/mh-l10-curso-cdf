@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -14,12 +15,16 @@ class ContactanosMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected User $user;
+    protected string $message;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(User $user, string $message)
     {
-        //
+        $this->user    = $user;
+        $this->message = $message;
     }
 
     /**
@@ -28,7 +33,7 @@ class ContactanosMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('gerencia@mhenriquez.com', null), // Remitente
+            from: new Address($this->user->email, $this->user->name), // Remitente
             subject: 'Información de contacto', // Asunto
         );
     }
@@ -40,6 +45,10 @@ class ContactanosMail extends Mailable
     {
         return new Content(
             view: 'emails.contactanos',
+            with: [
+                'user'    => $this->user,
+                'message' => $this->message,
+            ],
         );
     }
 

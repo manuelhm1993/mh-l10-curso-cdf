@@ -9,7 +9,14 @@
 @endsection
 
 @section('content')
-    <h1>Correo electrónico</h1>
+    <h1>Nuevo mensaje</h1>
 
-    <p>Este es el primer correo que envío por Laravel</p>
+    <h3>Remitente</h3>
+    <ul>
+        <li>Nombre: {{ $user->name }}</li>
+        <li>Correo: {{ $user->email }}</li>
+    </ul>
+
+    <h3>Mensaje</h3>
+    <p>{{ $message }}</p>
 @endsection
